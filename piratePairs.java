@@ -11,7 +11,22 @@ public class PiratePairs {
                 value ++;
             }
         }
-        System.out.println(Arrays.toString(cards));
+        //System.out.println(Arrays.toString(cards));
+        shuffleDeck(cards);
+    }
+
+    public static void shuffleDeck(int [] cards){  
+        for (int i = 0; i < cards.length - 1; i++){
+            int j = (int) (Math.random() * (i + 1));
+
+            int temp = cards [i];
+            cards[i] = cards [j];
+            cards [j] = temp;
+        }
+        
+    System.out.println(Arrays.toString(cards));
+
     }
     
+
 }
