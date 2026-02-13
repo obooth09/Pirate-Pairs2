@@ -4,9 +4,10 @@ public class PiratePairs {
 
     public static void main (String [] args) {
         Deck deck = new Deck();
+        Player[] player = new Player[1];
         Player player1 = new Player();
        
-        //System.out.println(Arrays.toString(cards));
+
         deck.shuffle();
 
         
