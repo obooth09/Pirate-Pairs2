@@ -22,4 +22,11 @@ public class Player {
         return false;
     }
 
+    public void clearHand(){
+        for (int i = 0; i < handSize; i++){
+            hand[i] = 0;
+        }
+        handSize = 0;
+    }
+
 }
