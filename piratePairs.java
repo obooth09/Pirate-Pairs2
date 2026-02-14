@@ -4,23 +4,19 @@ public class PiratePairs {
 
     public static void main (String [] args) {
         Deck deck = new Deck();
-        Player[] player = new Player[1];
-        Player player1 = new Player();
+        Player[] players = new Player[1];
+        players[0] = new Player();
        
 
         deck.shuffle();
+        int card = deck.dealCard();
+        players[0].addCard(card);
+        players[0].hasPair();
 
         
     }
 
     
-    public static int drawCard(int [] cards){
-        int drawnCard = cards [0];
-        for (int i = 0; i < cards.length -  1; i++){
-            cards[i] = cards[i + 1];
-        }
-        cards[cards.length - 1] = 0;
-        return drawnCard;
-    }
+   
 
 }
