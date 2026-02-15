@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Deck {
     private int[] cards;
     private int size;
@@ -31,6 +33,14 @@ public class Deck {
         }
         cards[size - 1] = 0;
         return drawnCard;
+    }
+
+    public void show(){
+        System.out.println(Arrays.toString(cards));
+    }
+
+    public void checkPair(){
+        
     }
      
     

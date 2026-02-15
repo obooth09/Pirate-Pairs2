@@ -1,6 +1,7 @@
+import java.util.Arrays;
 public class Player {
     private int[] hand;
-    private int handSize;
+    private int handSize = 0;
     public Player() {
         hand = new int[10];
 
@@ -27,6 +28,10 @@ public class Player {
             hand[i] = 0;
         }
         handSize = 0;
+    }
+
+    public void showHand(){
+        System.out.println(Arrays.toString(hand));
     }
 
 }
