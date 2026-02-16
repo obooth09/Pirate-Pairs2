@@ -32,6 +32,7 @@ public class Deck {
             cards[i] = cards[i + 1];
         }
         cards[size - 1] = 0;
+        size--;
         return drawnCard;
     }
 
@@ -40,7 +41,7 @@ public class Deck {
     }
 
     public void checkPair(){
-        
+
     }
      
     

@@ -12,22 +12,22 @@ public class Player {
         handSize++;
     }
 
-    public boolean hasPair(){
+    public boolean hasCard(int value){
         for (int i = 0; i < handSize; i++){
-            for (int j = 0; j < handSize; j++){
-                if (hand[i] == hand[j]){
-                    return true;
-                }
+            if (hand[i] == value) {
+                return true;
             }
         }
         return false;
     }
+
 
     public void clearHand(){
         for (int i = 0; i < handSize; i++){
             hand[i] = 0;
         }
         handSize = 0;
+        //later add it to a discard pile which becomes the main pile if run out of cards
     }
 
     public void showHand(){
