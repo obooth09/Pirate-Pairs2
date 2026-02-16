@@ -1,15 +1,37 @@
 import java.util.Arrays;
 public class Player {
     private int[] hand;
-    private int handSize = 0;
+    private int handSize;
+    private int score;
+    private boolean eliminated;
     public Player() {
         hand = new int[10];
+        handSize = 0;
+        score = 0;
+        eliminated = false;
 
+    }
+
+    public void addScore(int points){
+        score += points;
+    }
+
+    public int getScore(){
+        return score;
+    }
+
+    public boolean isEliminated(){
+        return eliminated;
+    }
+    //maybe change it to eliminate player if it makes more sense
+    public void eliminate(){
+        eliminated = true;
     }
 
     public void addCard(int card){
         hand[handSize] = card;
         handSize++;
+
     }
 
     public boolean hasCard(int value){
