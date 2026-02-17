@@ -1,4 +1,3 @@
-import java.util.Arrays;
 public class Player {
     private int[] hand;
     private int handSize;
@@ -57,9 +56,9 @@ public class Player {
     }
 
     public void showHand(){
-        System.out.println("hand: ");
+        System.out.print("hand: ");
         for (int i = 0; i < handSize; i++){
-            System.out.print(hand[i] + ", ")
+            System.out.print(hand[i] + ", ");
         }
         //System.out.println(Arrays.toString(hand));
     }
