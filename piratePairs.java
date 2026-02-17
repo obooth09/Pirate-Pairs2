@@ -19,6 +19,17 @@ public class PiratePairs {
 
         int current = 0; // current person who is playing
         while (deck.countActivePlayers(players) > 1){
+            if (players[current].isEliminated() == true){
+                current = (current + 1) % players.length;
+                continue;
+            }
+            if (players[current].getHandSize() == 0){
+                int forceDraw = deck.dealCard();
+                System.out.println("player " + current + " has no cards... forced to get " + forceDraw);
+                players[current].addCard(forceDraw);
+                current = (current + 1) % players.length;
+                continue;
+            }
             int drawn = deck.dealCard();
             System.out.println("Player " + current + " draws a " + drawn);
 

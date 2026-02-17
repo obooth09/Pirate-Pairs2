@@ -12,6 +12,10 @@ public class Player {
 
     }
 
+    public int getHandSize(){
+        return handSize;
+    }
+
     public void addScore(int points){
         score += points;
     }
