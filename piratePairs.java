@@ -12,20 +12,30 @@ public class PiratePairs {
         System.out.println("Losing Score is " + losingScore);
 
         deck.shuffle();
-        for (int i = 0; i < players.length; i++){
-            players[i].addCard(deck.dealCard());
-        }
-        //deck.show();
 
         int current = 0; // current person who is playing
         int round = 1;
         while (deck.countActivePlayers(players) > 1){
             System.out.println("\n ---- Round " + round + " ----");
+
             for (int i = 0; i < players.length; i++){
+                //skip eliminated players
                 if (players[current].isEliminated() == true){
                 current = (current + 1) % players.length;
                 continue;
                 }
+
+                //forced draw if empty hand
+                if (players[current].getHandSize() == 0){
+                int forceDraw = deck.dealCard();
+                System.out.println("player " + current + " has no cards... forced to get " + forceDraw);
+                players[current].addCard(forceDraw);
+                players[current].showHand();
+                current = (current + 1) % players.length;
+                continue;
+                }
+
+                //normal draw
                 int drawn = deck.dealCard();
                 System.out.println("Player " + current + " draws a " + drawn);
 
@@ -45,29 +55,14 @@ public class PiratePairs {
                 players[current].addCard(drawn);
                 }
                 players[current].showHand();
+                //i looked this up so that it goes back to player 1
                 current = (current + 1) % players.length;
-            }
-            
-            //forced draw if empty hand
-            if (players[current].getHandSize() == 0){
-                int forceDraw = deck.dealCard();
-                System.out.println("player " + current + " has no cards... forced to get " + forceDraw);
-                players[current].addCard(forceDraw);
-                players[current].showHand();
-                current = (current + 1) % players.length;
-                continue;
             }
 
             System.out.println("----end of round " + round + "----");
             round++;
 
-            
-
-            
-
-            players[current].showHand();
-            //i looked this up so that it goes back to player 1
-
+            //players[current].showHand();
         }
 
         for (int i = 0; i < players.length; i++){
@@ -77,8 +72,4 @@ public class PiratePairs {
         }
         
     }
-
-    
-   
-
 }
