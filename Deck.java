@@ -15,7 +15,7 @@ public class Deck {
             }
         }
     }
-
+    //i looked this function up by the way I couldnt figure it out
     public void shuffle(){
         for (int i = 0; i < size - 1; i++){
             int j = (int) (Math.random() * (i + 1));
@@ -43,6 +43,16 @@ public class Deck {
     public void checkPair(){
 
     }
+
+    public int countActivePlayers(Player [] players){
+            int count = 0;
+            for (Player player : players){
+                if (!player.isEliminated()){
+                    count++;
+                }
+            }
+            return count;
+        }
      
     
 }

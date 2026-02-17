@@ -18,7 +18,7 @@ public class PiratePairs {
         //deck.show();
 
         int current = 0; // current person who is playing
-        for (int i = 0; i < 10; i ++){
+        while (deck.countActivePlayers(players) > 1){
             int drawn = deck.dealCard();
             System.out.println("Player " + current + " draws a " + drawn);
 
@@ -29,7 +29,11 @@ public class PiratePairs {
                 System.out.println("Player " + current + " gains " + drawn + " points");
                 System.out.println("Total score: " + players[current].getScore());
                 players[current].clearHand(); 
-            //later change the score here
+
+                if (players[current].getScore() > losingScore) {
+                    players[current].eliminate();
+                    System.out.println("player " + current + " is eliminated!!!!");
+                }
             } else {
                 players[current].addCard(drawn);
             }
@@ -38,14 +42,6 @@ public class PiratePairs {
             //i looked this up so that it goes back to player 1
             current = (current + 1) % players.length;
         }
-
-        
-
-        
-
-        
-
-        //players[0].hasPair();
 
         
     }
