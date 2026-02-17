@@ -6,6 +6,10 @@ public class Deck {
     
     public Deck() {
         cards = new int [55];
+        formDeck();
+    }
+
+    private void formDeck(){
         size = 0;
 
         for (int i = 1; i <= 10; i++){
@@ -26,6 +30,12 @@ public class Deck {
     }
 
     public int dealCard(){
+        //reshuffles deck if needed
+        if (size == 0){
+            formDeck();
+            shuffle();
+        }
+
         int drawnCard = cards [0];
         //add something that changes the for loop into making a temp array
         for (int i = 0; i < size -  1; i++){
@@ -40,9 +50,9 @@ public class Deck {
         System.out.println(Arrays.toString(cards));
     }
 
-    public void checkPair(){
+    // public void checkPair(){
 
-    }
+    // }
 
     public int countActivePlayers(Player [] players){
             int count = 0;
