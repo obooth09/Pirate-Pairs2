@@ -54,7 +54,12 @@ public class PiratePairs {
             //i looked this up so that it goes back to player 1
             current = (current + 1) % players.length;
         }
-
+        
+        for (int i = 0; i < players.length; i++){
+            if (!players[i].isEliminated()){
+                System.out.println("Player " + i + " won!!!!!!");
+            }
+        }
         
     }
 
