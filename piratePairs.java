@@ -27,6 +27,7 @@ public class PiratePairs {
                 int forceDraw = deck.dealCard();
                 System.out.println("player " + current + " has no cards... forced to get " + forceDraw);
                 players[current].addCard(forceDraw);
+                players[current].showHand();
                 current = (current + 1) % players.length;
                 continue;
             }

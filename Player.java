@@ -57,7 +57,11 @@ public class Player {
     }
 
     public void showHand(){
-        System.out.println(Arrays.toString(hand));
+        System.out.println("hand: ");
+        for (int i = 0; i < handSize; i++){
+            System.out.print(hand[i] + ", ")
+        }
+        //System.out.println(Arrays.toString(hand));
     }
 
 }
